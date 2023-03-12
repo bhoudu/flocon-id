@@ -1,4 +1,10 @@
+# intellij
 .idea
 *.iml
-lib
+
+# aws private info
 .aws
+
+# nodejs
+lib
+node_modules
