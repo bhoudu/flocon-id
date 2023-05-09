@@ -40,3 +40,19 @@ export function floconId(
   const length = totalLength - prefix.length;
   return prefix + idFunction(length);
 }
+
+export function floconIdHex16(): string {
+  return floconId();
+}
+
+export function floconIdHex32(): string {
+  return floconId(new Date(), null, defaultHashFunction, "32_CHARS_HEX");
+}
+
+export function floconIdAlphanum16(): string {
+  return floconId(new Date(), null, defaultHashFunction, "16_CHARS_APHANUM");
+}
+
+export function floconIdAlphanum32(): string {
+  return floconId(new Date(), null, defaultHashFunction, "32_CHARS_ALPHANUM");
+}
