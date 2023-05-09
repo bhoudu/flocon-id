@@ -8,6 +8,7 @@
 # nodejs
 lib
 node_modules
+yarn-error.log
 
 # test
 reports
