@@ -25,13 +25,13 @@ function getIdFunctionParams(randomSequenceType: FloconRandomSequenceType): [num
   }
 }
 
-const defaultHashFunction = (item) => "";
+export const defaultHashFunction = (item) => "";
 
-export function floconId(
+export function generateId(
   date: Date = new Date(),
+  randomSequenceType: FloconRandomSequenceType = "16_CHARS_HEX",
   item: object | string = null,
   hashFunction: (item: object | string) => string = defaultHashFunction,
-  randomSequenceType: FloconRandomSequenceType = "16_CHARS_HEX",
 ): string {
   const unixTime = toUnixTimeString(date);
   const shard = hashFunction(item);
@@ -42,17 +42,17 @@ export function floconId(
 }
 
 export function floconIdHex16(): string {
-  return floconId();
+  return generateId();
 }
 
 export function floconIdHex32(): string {
-  return floconId(new Date(), null, defaultHashFunction, "32_CHARS_HEX");
+  return generateId(new Date(), "32_CHARS_HEX");
 }
 
 export function floconIdAlphanum16(): string {
-  return floconId(new Date(), null, defaultHashFunction, "16_CHARS_APHANUM");
+  return generateId(new Date(), "16_CHARS_APHANUM");
 }
 
 export function floconIdAlphanum32(): string {
-  return floconId(new Date(), null, defaultHashFunction, "32_CHARS_ALPHANUM");
+  return generateId(new Date(), "32_CHARS_ALPHANUM");
 }
