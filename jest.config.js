@@ -1,7 +1,15 @@
 module.exports = {
   roots: ['<rootDir>/src'],
   transform: {
-    "^.+\\.(t|j)sx?$": "@swc/jest",
+    '^.+\\.tsx?$': [
+      "esbuild-jest",
+      {
+        sourcemap: true,
+        loaders: {
+          '.spec.ts': 'tsx'
+        }
+      }
+    ]
   },
   testRegex: '(//.*|(\\.|/)(test|spec|steps))\\.tsx?$',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
